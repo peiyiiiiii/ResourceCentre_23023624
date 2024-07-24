@@ -7,6 +7,7 @@ class Camera(Item):
     # and methods into a super class, named item.py
     def __init__(self, assetTag, description, opticalZoom):
         super().__init__(assetTag, description)
+        self._opticalZoom = opticalZoom
     
     def getOpticalZoom(self):
         return self._opticalZoom
