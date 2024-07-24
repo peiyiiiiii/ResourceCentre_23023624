@@ -32,4 +32,5 @@ class Item():
     def __str__(self):
         return "{:<10}{:<30}{:<10}{:<12}".format(
             self.getAssetTag(), self.getDescription(), 
-            self.getIsAvailable(), self.getdueDate())
+            self.getIsAvailable(), self.getdueDate(),
+            self.getOpticalZoom())
