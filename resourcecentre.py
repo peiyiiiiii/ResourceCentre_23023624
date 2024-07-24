@@ -149,12 +149,7 @@ class ResourceCenter:
                 if option == OPTION_CAMERA:
                     # Refactor (F): create and use proper method to display loaned camera.
                     # Don't forget to create a pytest for this new method.
-                    print("{:<10}{:<30}{:<10}{:<12}{:<10}".format("AssetTag", 
-                          "Description", "Available", "Due Date", "Zoom"))
-                    for i in self.inventory.cameraList:
-                        if i.getIsAvailable() == "No":
-                            print("{:<10}{:<30}{:<10}{:<12}{:<10}".format(i.getAssetTag(), \
-                            i.getDescription() , i.getIsAvailable(), i.getDueDate(), i.getOpticalZoom()))
+                    print(self.Inventory.getNotAvailableCamera())
 
                     assetTag = input("Enter asset tag >")
 
