@@ -1,6 +1,6 @@
 from inventory.inventory import Inventory
 class Test_US_04:
-############### Test view camera ######################
+    ############### Test view camera ######################
     def test_view_empty_camera_list(self):
         test_inventory = Inventory()
 
@@ -85,4 +85,3 @@ class Test_US_04:
         actual_text += "{:<10}{:<30}{:<10}{:<12}{:<10}\n".format(
             "L002", "Test Laptop 2", "Yes", "", "MACOS")
         assert tested_text == actual_text
-

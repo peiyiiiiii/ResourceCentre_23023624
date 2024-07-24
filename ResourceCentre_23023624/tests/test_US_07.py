@@ -69,4 +69,4 @@ class Test_US_07:
         
         result = test_inventory.returnLaptop("L003")
         
-        assert result == False    
+        assert result == False 

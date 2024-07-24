@@ -1,35 +1,32 @@
 class Item():
-    def __init__(self, assertTag, description):
-        self.__assertTag = assertTag
-        self.__description = description
+    def __init__(self, assetTag, description):
+        self._assetTag = assetTag
+        self._description = description
         self._dueDate = ""
-        self.__isAvailable = True
+        self._isAvailable = True
 
     def getAssetTag(self):
-        return self.__assertTag
+        return self._assetTag
     
     def getDescription(self):
-        return self.__description
+        return self._description
     
-    def getdueDate(self):
+    def getDueDate(self):
         return self._dueDate
     
     def getIsAvailable(self):
-        if self.__isAvailable:
+        if self._isAvailable:
             return "Yes"
         else:
             return "No"
-        
-    def getOpticalZoom(self):
-        return self.__opticalZoom
     
     def setDueDate(self, dueDate):
         self._dueDate = dueDate
-
+        
     def setIsAvailable(self, isAvailable):
-        self.__isAvailable = isAvailable
+        self._isAvailable = isAvailable
 
     def __str__(self):
-        return "{:<10}{:<30}{:<10}{:<12}".format(
-            self.getAssetTag(), self.getDescription(), 
-            self.getIsAvailable(), self.getdueDate())
+        return "{:<10}{:<30}{:<10}{:<12}".format( 
+                        self.getAssetTag(), self.getDescription(),  
+                        self.getIsAvailable(), self.getDueDate())
