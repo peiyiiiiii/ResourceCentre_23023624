@@ -32,7 +32,18 @@ class ResourceCenter:
         print("")
         print("==============================================")
         print(message)
-    print("==============================================")
+        print("==============================================")
+    
+    def selectItemType(self):
+        # Refactor (B): Extract duplicate codes to selectItemType(),
+        # return the option selected.
+        # Advance refactoring: error chekcing in selectItemType().
+        print("\nItem types:")
+        print("1. Digital Camera")
+        print("2. Laptop")
+        option = int(input("Enter option to select item type >"))
+        return option
+
     def main(self):
         # Refactor (A): Extract constants for choice integers
         CHOICE_ADD = 1
@@ -57,10 +68,7 @@ class ResourceCenter:
                 # Refactor (B): Extract duplicate codes to selectItemType(),
                 # return the option selected.
                 # Advance refactoring: error chekcing in selectItemType().
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType()
 
                 # TO-DO: Write the code to ADD a digital camera or laptop.
                 if option == OPTION_CAMERA:
@@ -90,11 +98,8 @@ class ResourceCenter:
                         print("Invalid item type.")
     
             elif choice == CHOICE_VIEW:
-                # Refactor (B): Extract duplicate codes to printHeader(message)
-                print("")
-                print("==============================================")
-                print("Display all items")
-                print("==============================================")
+                # Refactor (B): Extract duplicate codes to printHeader(message
+                self.printHeader("Add an item")
 
                 # TO-DO: Write the code to display all digital camera or laptop.
                 print(self.inventory.getAvailableCamera())
@@ -102,16 +107,10 @@ class ResourceCenter:
                 
             elif choice == CHOICE_LOAN:
                 # Refactor (B): use printHeader(mesage)
-                print("")
-                print("==============================================")
-                print("Loan an item")
-                print("==============================================")
+                self.printHeader("Add an item")
                 
                 # Refactor (B): use selectItemType()
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType()
 
                 # TO-DO: Write the code to LOAN a digital camera or laptop
                 if option == 1:
@@ -141,27 +140,16 @@ class ResourceCenter:
                 
             elif choice == CHOICE_RETURN:
                 # Refactor (B): use printHeader(mesage)
-                print("")
-                print("==============================================")
-                print("Return an item")
-                print("==============================================")
+                self.printHeader("Add an item")
                 
                 # Refactor (B): use selectItemType()
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType()
 
                 # TO-DO: Write the code to RETURN a digital camera or laptop
                 if option == OPTION_CAMERA:
                     # Refactor (F): create and use proper method to display loaned camera.
                     # Don't forget to create a pytest for this new method.
-                    print("{:<10}{:<30}{:<10}{:<12}{:<10}".format("AssetTag", 
-                          "Description", "Available", "Due Date", "Zoom"))
-                    for i in self.inventory.cameraList:
-                        if i.getIsAvailable() == "No":
-                            print("{:<10}{:<30}{:<10}{:<12}{:<10}".format(i.getAssetTag(), \
-                            i.getDescription() , i.getIsAvailable(), i.getDueDate(), i.getOpticalZoom()))
+                    print(self.Inventory.getNotAvailableCamera())
 
                     assetTag = input("Enter asset tag >")
 
